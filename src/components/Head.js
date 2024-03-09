@@ -1,5 +1,5 @@
 import React from "react";
-import { UseDispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleMenu } from "../util/appSlice";
 
 const Head = () => {
