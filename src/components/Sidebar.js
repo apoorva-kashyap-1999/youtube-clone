@@ -16,6 +16,12 @@ const Sidebar = () => {
         <li>🔴Live</li>
         <li>📽️Videos</li>
       </ul>
+      <h1 className="font-bold pt-5">You</h1>
+      <ul>
+        <li>📷Your channel</li>
+        <li>⬅️History</li>
+        <li>📺Your videos</li>
+      </ul>
       <h1 className="font-bold pt-5">Subscriptions</h1>
       <ul>
         <li>🎶Music</li>

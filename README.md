@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Free videos api from youtube
+
+https://developers.google.com/youtube/v3/docs/videos/list
+
+## create api key
+
+https://console.cloud.google.com/apis/credentials?pli=1&project=netflixgpt-f37a9
+-Need to enable youtube data api v3 if first time
