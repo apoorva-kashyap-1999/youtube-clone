@@ -17,7 +17,7 @@ const Head = () => {
   }
 
   useEffect(()=>{
-    console.log(searchQuery);
+   // console.log(searchQuery);
    // Debouncing
    // an api call after every key press if only diff between two inputs<200 , decline else make call
     const timer = setTimeout(()=>getSearchSuggestions(), 2000); 
