@@ -77,3 +77,11 @@ https://developers.google.com/youtube/v3/docs/videos/list
 
 https://console.cloud.google.com/apis/credentials?pli=1&project=netflixgpt-f37a9
 -Need to enable youtube data api v3 if first time
+
+## Debouncing
+
+Debouncing is removing unwanted input noise from buttons, switches or other user input. Debouncing prevents extra activations or slow functions from triggering too often.
+
+## Throttling
+
+Throttling is a mechanism that allows a function execution for a limited number of times after that it will block its execution. It can also prohibit a function from execution if it is invoked recently. It also determines a consistent rate of execution.
