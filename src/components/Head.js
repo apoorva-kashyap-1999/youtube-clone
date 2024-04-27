@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../util/appSlice";
 import { YOUTUBE_SEARCH_API } from "../util/constants";
+import store from "../util/store";
+import { cacheResults } from "../util/searchSlice";
 
 const Head = () => {
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
+  
+  const searchCache = useSelector((store)=>store.search);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -17,13 +21,20 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     setSuggestions(json[1]);
+    dispatch(cacheResults({
+      [searchQuery]:json[1]
+    }))
   };
 
   useEffect(() => {
     // console.log(searchQuery);
     // Debouncing
     // an api call after every key press if only diff between two inputs<200 , decline else make call
-    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    const timer = setTimeout(() => {
+      
+      //caching logic
+      if(searchCache[searchQuery]) setSuggestions(searchCache[searchQuery]);
+      else {getSearchSuggestions()}}, 200);
 
     // need to make timer, when component re-renders
     return () => {
