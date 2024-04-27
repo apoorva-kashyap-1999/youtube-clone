@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { closeMenu } from "../util/appSlice";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import CommentsContainer from "./CommentsContainer";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const WatchPage = () => {
 
   // will use iframe instead of fetching api for video
   return (
+    <div className="flex flex-col">
     <div className="px-5">
       <iframe
       className="rounded-md"
@@ -29,6 +31,9 @@ const WatchPage = () => {
         allowfullscreen
       ></iframe>
     </div>
+    <CommentsContainer/>
+    </div>
+    
   );
 };
 
