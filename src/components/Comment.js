@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import ReplyComments from "./ReplyComments";
 
 const Comment = ({ comments }) => {
-  const [showComment, setShowComment] = useState(false);
-  const toggleReplies = () => {
-    setShowComment(!showComment);
+  const [showComment, setShowComment] = useState(
+    new Array(comments.length).fill(false)
+  );
+  const toggleReplies = (index) => {
+    const updatedShowComment = [...showComment];
+    updatedShowComment[index] = !updatedShowComment[index];
+    setShowComment(updatedShowComment);
   };
+
   return (
     <div>
       <ul>
@@ -27,9 +32,11 @@ const Comment = ({ comments }) => {
             </div>
             <div className="px-8 py-2 my-2 mx-8">
               👍👎
-              <button className="mx-2" onClick={() => toggleReplies()}>🔽 See Replies</button>
+              <button className="mx-2" onClick={() => toggleReplies(index)}>
+                🔽 See Replies
+              </button>
             </div>
-            {showComment && (
+            {showComment[index] && (
               <div>
                 {comment.replies && (
                   <ReplyComments commentsReply={comment.replies} />
